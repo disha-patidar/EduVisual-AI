@@ -1832,3 +1832,334 @@ input {
   }
 
 }
+/* =========================================================
+   MOBILE RESPONSIVE VISUALIZATIONS
+   ========================================================= */
+
+/* Prevent horizontal overflow everywhere */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Lesson page */
+.lesson-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Actual layout used by Lesson.jsx */
+.lesson-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.7fr);
+  gap: 18px;
+  align-items: start;
+}
+
+/* Visualization card */
+.visualization-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* Everything inside visualization card must respect parent width */
+.visualization-card * {
+  max-width: 100%;
+}
+
+/* Visualization shell/stage */
+.visual-shell,
+.visual-stage,
+.visualization-card {
+  min-width: 0;
+}
+
+/* SVG visualizations */
+.visualization-card svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* SVG with fixed dimensions should still shrink */
+.visualization-card svg[width] {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Simulation scene */
+.sim-scene {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Images/canvas if any visualization uses them */
+.visualization-card img,
+.visualization-card canvas {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* Visualization stage */
+.visual-stage {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Process steps */
+.process-row {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .lesson-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .visualization-card {
+    width: 100%;
+  }
+
+  .visual-stage {
+    padding: 14px;
+    min-height: 0;
+  }
+
+  .sim-scene {
+    min-height: 420px;
+  }
+
+  .lesson-page {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .lesson-header {
+    margin-bottom: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .lesson-page {
+    width: 100%;
+    padding: 15px 12px 50px;
+  }
+
+  .lesson-header {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .lesson-header h1 {
+    font-size: 30px;
+    line-height: 1.15;
+    word-break: normal;
+  }
+
+  .lesson-header p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .lesson-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .visualization-card {
+    width: 100%;
+    min-width: 0;
+    border-radius: 14px;
+  }
+
+  .visual-stage {
+    width: 100%;
+    padding: 8px;
+    min-height: 0;
+  }
+
+  .visual-title {
+    padding: 14px 14px 5px;
+  }
+
+  .visual-title h2 {
+    font-size: 17px;
+  }
+
+  .visual-title p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /*
+     IMPORTANT:
+     Don't force the old 470px minimum height
+     on a small phone.
+  */
+  .visual-stage {
+    min-height: auto;
+  }
+
+  .sim-scene {
+    width: 100%;
+    min-height: 360px;
+    height: 360px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  /* Make SVG scenes fit phone width */
+  .visualization-card svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Process cards */
+  .process-row {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    width: auto;
+    padding: 6px;
+    gap: 6px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-node {
+    min-height: 58px;
+    padding: 7px;
+    border-radius: 9px;
+  }
+
+  .process-node b {
+    font-size: 9px;
+    line-height: 1.25;
+  }
+
+  .node-number {
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+
+  .mini-formula {
+    font-size: 9px;
+  }
+
+  /* Animation controls */
+  .controls {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .icon-btn,
+  .play-btn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .control-progress {
+    min-width: 0;
+  }
+
+  .controls > span {
+    font-size: 10px;
+    min-width: 28px;
+  }
+
+  /* Explanation */
+  .explanation-card {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  /* Prevent long formulas/text from breaking layout */
+  .visualization-card p,
+  .visualization-card span,
+  .visualization-card div {
+    overflow-wrap: break-word;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .lesson-page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .visual-stage {
+    padding: 5px;
+  }
+
+  .sim-scene {
+    min-height: 330px;
+    height: 330px;
+  }
+
+  .visual-title {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .visual-title h2 {
+    font-size: 16px;
+  }
+
+  .process-row {
+    left: 5px;
+    right: 5px;
+    bottom: 7px;
+  }
+
+  .process-node {
+    min-height: 52px;
+    padding: 6px;
+  }
+
+  .process-node b {
+    font-size: 8px;
+  }
+
+}
