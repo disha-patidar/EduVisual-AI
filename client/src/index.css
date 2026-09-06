@@ -1,0 +1,1834 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #0b1220;
+  color: #f8fafc;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 72px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(11, 18, 32, 0.92);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 570px;
+  padding: 110px 20px 90px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(56, 189, 248, 0.12),
+      transparent 35%
+    ),
+    #0b1220;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -4px;
+  font-weight: 850;
+}
+
+.hero h1 span {
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #818cf8,
+    #c084fc
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 650px;
+  margin-top: 25px;
+
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   TOPIC INPUT
+========================= */
+
+.topic-box {
+  width: min(720px, 90%);
+  margin-top: 38px;
+
+  display: flex;
+  gap: 12px;
+
+  padding: 8px;
+
+  background: rgba(30, 41, 59, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.topic-box input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 16px 18px;
+
+  border: none;
+  outline: none;
+
+  color: white;
+  background: transparent;
+
+  font-size: 16px;
+}
+
+.topic-box input::placeholder {
+  color: #64748b;
+}
+
+.generate-btn {
+  border: none;
+  border-radius: 12px;
+
+  padding: 0 25px;
+
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =========================
+   SUBJECT SECTION
+========================= */
+
+.subjects-section {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+
+  padding: 80px 0 100px;
+}
+
+.subjects-section > h2 {
+  margin-bottom: 40px;
+
+  text-align: center;
+
+  font-size: 38px;
+  letter-spacing: -1px;
+}
+
+
+/* =========================
+   SUBJECT CARD
+========================= */
+
+.subject-card {
+  width: 100%;
+  margin-bottom: 32px;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.92),
+    rgba(15, 23, 42, 0.95)
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.18);
+}
+
+.subject-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.subject-icon {
+  width: 64px;
+  height: 64px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: rgba(56, 189, 248, 0.1);
+
+  font-size: 34px;
+}
+
+.subject-header h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.subject-header p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+
+/* =========================
+   TOPICS GRID
+========================= */
+
+.topics-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(190px, 1fr)
+  );
+
+  gap: 16px;
+}
+
+
+/* =========================
+   TOPIC CARD
+========================= */
+
+.topic-card {
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+
+  overflow: hidden;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(56, 189, 248, 0.45);
+
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.topic-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  font-size: 30px;
+}
+
+.topic-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.topic-info h3 {
+  margin-bottom: 8px;
+
+  color: #f8fafc;
+
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.topic-info p {
+  color: #94a3b8;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.topic-explore {
+  margin-top: auto;
+  padding-top: 18px;
+
+  color: #38bdf8;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   LESSON PAGE
+========================= */
+
+.lesson-page {
+  width: min(1300px, 92%);
+  margin: auto;
+  padding: 90px 0 80px;
+}
+
+.lesson-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+
+  margin-bottom: 35px;
+}
+
+.back-btn {
+  padding: 10px 16px;
+
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 10px;
+
+  color: #cbd5e1;
+
+  white-space: nowrap;
+}
+
+.back-btn:hover {
+  color: white;
+  border-color: #38bdf8;
+}
+
+.lesson-header h1 {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.lesson-header p {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   LESSON LAYOUT
+========================= */
+
+.lesson-layout {
+  display: grid;
+
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================
+   VISUALIZATION CARD
+========================= */
+
+.visualization-card {
+  min-height: 600px;
+
+  padding: 25px;
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   EXPLANATION
+========================= */
+
+.explanation-card {
+  padding: 28px;
+
+  background: rgba(30, 41, 59, 0.85);
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  border-radius: 20px;
+
+  position: sticky;
+  top: 95px;
+}
+
+.step-number {
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  margin-bottom: 18px;
+
+  border-radius: 8px;
+
+  color: #38bdf8;
+
+  background: rgba(56, 189, 248, 0.1);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.explanation-card h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.explanation-card p {
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ANIMATION CONTROLS
+========================= */
+
+.animation-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 12px 4px;
+}
+
+.control-btn {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 11px;
+
+  background: #1e293b;
+  color: #e2e8f0;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  background: #26364d;
+  color: #38bdf8;
+}
+
+.control-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.play-btn {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  border-color: transparent;
+}
+
+.play-btn:hover:not(:disabled) {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #8b5cf6
+  );
+}
+
+.progress-container {
+  flex: 1;
+  min-width: 100px;
+  margin-left: 8px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 7px;
+
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #1e293b;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #818cf8
+  );
+
+  transition: width 0.3s ease;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+  flex: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 7px;
+
+  border-radius: 10px;
+
+  background: #1e293b;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #818cf8
+  );
+
+  transition: width 0.3s ease;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz {
+  margin-top: 40px;
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: rgba(30, 41, 59, 0.8);
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.quiz h2 {
+  margin-bottom: 20px;
+}
+
+.quiz button {
+  padding: 12px 18px;
+
+  margin: 6px 6px 0 0;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(148, 163, 184, 0.18);
+
+  background: #0f172a;
+
+  color: #e2e8f0;
+
+  cursor: pointer;
+}
+
+.quiz button:hover {
+  border-color: #38bdf8;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .topic-box {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .topic-box input {
+    width: 100%;
+
+    background: #1e293b;
+
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 12px;
+  }
+
+  .generate-btn {
+    min-height: 50px;
+  }
+
+  .subjects-section {
+    width: 92%;
+    padding-top: 50px;
+  }
+
+  .subjects-section > h2 {
+    font-size: 30px;
+  }
+
+  .subject-card {
+    padding: 20px;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .explanation-card {
+    position: static;
+  }
+
+  .lesson-header {
+    flex-direction: column;
+  }
+
+  .lesson-header h1 {
+    font-size: 32px;
+  }
+}
+
+
+/* =========================================================
+   EXPLORE PAGE
+========================================================= */
+
+.explore-page {
+  min-height: 100vh;
+  width: 100%;
+
+  padding: 105px 6% 80px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(37, 99, 235, 0.10),
+      transparent 35%
+    ),
+    #080f1f;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.explore-header {
+  max-width: 850px;
+  margin-bottom: 34px;
+}
+
+.explore-eyebrow {
+  margin-bottom: 10px;
+
+  color: #38bdf8;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.explore-header h1 {
+  margin: 0 0 12px;
+
+  color: #f8fafc;
+
+  font-size: clamp(40px, 5vw, 60px);
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+.explore-header p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.subject-filters {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 48px;
+}
+
+.subject-filter {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 10px 16px;
+
+  border: 1px solid
+    rgba(148, 163, 184, 0.18);
+
+  border-radius: 10px;
+
+  background: #111a2d;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.subject-filter:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(56, 189, 248, 0.5);
+
+  color: #38bdf8;
+}
+
+.subject-filter.active {
+  border-color: transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  color: white;
+
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   SUBJECT SECTION
+========================================================= */
+
+.explore-subject {
+  margin-bottom: 58px;
+}
+
+
+/* =========================================================
+   SUBJECT HEADER
+========================================================= */
+
+.explore-subject-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.explore-subject-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #17233a;
+
+  border: 1px solid
+    rgba(148, 163, 184, 0.12);
+
+  font-size: 27px;
+}
+
+.explore-subject-header h2 {
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-size: 27px;
+
+  letter-spacing: -0.5px;
+}
+
+.explore-subject-header p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TOPIC GRID
+========================================================= */
+
+.explore-topics-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   TOPIC CARD
+========================================================= */
+
+.explore-topic-card {
+  position: relative;
+
+  min-height: 235px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 23px;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  border-radius: 18px;
+
+  border: 1px solid
+    rgba(148, 163, 184, 0.14);
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(56, 189, 248, 0.09),
+      transparent 38%
+    ),
+    #111b2f;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.explore-topic-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -60px;
+  bottom: -60px;
+
+  border-radius: 50%;
+
+  background: rgba(59, 130, 246, 0.07);
+
+  transition: transform 0.3s ease;
+}
+
+.explore-topic-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(56, 189, 248, 0.42);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.explore-topic-card:hover::after {
+  transform: scale(1.5);
+}
+
+
+/* =========================================================
+   TOPIC ICON
+========================================================= */
+
+.explore-topic-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+
+  background: #1c2940;
+
+  border: 1px solid
+    rgba(148, 163, 184, 0.10);
+
+  font-size: 28px;
+}
+
+
+/* =========================================================
+   TOPIC CONTENT
+========================================================= */
+
+.explore-topic-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.explore-topic-content h3 {
+  margin: 0 0 9px;
+
+  color: #f8fafc;
+
+  font-size: 20px;
+
+  line-height: 1.25;
+}
+
+.explore-topic-content p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   EXPLORE LINK
+========================================================= */
+
+.explore-topic-link {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  color: #38bdf8;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: gap 0.2s ease;
+}
+
+.explore-topic-card:hover
+.explore-topic-link {
+  gap: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .explore-topics-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 680px) {
+
+  .explore-page {
+    padding:
+      90px 20px 60px;
+  }
+
+  .explore-header h1 {
+    font-size: 40px;
+  }
+
+  .explore-topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-filters {
+    gap: 8px;
+  }
+
+  .subject-filter {
+    padding: 9px 12px;
+  }
+
+}
+
+/* =========================================================
+   PHOTOSYNTHESIS ANIMATION
+========================================================= */
+
+.photo-scene {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  overflow: hidden;
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      to bottom,
+      #081a35 0%,
+      #102c50 55%,
+      #162c23 56%,
+      #102019 100%
+    );
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* SKY */
+
+.photo-sky {
+  position: absolute;
+  inset: 0 0 45% 0;
+  overflow: hidden;
+}
+
+
+/* SUN */
+
+.photo-sun {
+  position: absolute;
+  top: 55px;
+  left: 80px;
+  width: 95px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #fff7ae 0%,
+    #ffd84d 45%,
+    #ff9d00 100%
+  );
+  box-shadow:
+    0 0 30px #ffd84d,
+    0 0 80px rgba(255,200,50,0.6);
+  z-index: 4;
+}
+
+.sun-core {
+  font-size: 55px;
+}
+
+
+/* SUN BEAMS */
+
+.sun-beam {
+  position: absolute;
+  top: 135px;
+  left: 140px;
+  width: 6px;
+  height: 280px;
+  transform-origin: top;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,225,90,0.95),
+    rgba(255,225,90,0)
+  );
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.beam-0 {
+  transform: rotate(15deg);
+}
+
+.beam-1 {
+  transform: rotate(27deg);
+}
+
+.beam-2 {
+  transform: rotate(39deg);
+}
+
+.beam-3 {
+  transform: rotate(51deg);
+}
+
+.beam-4 {
+  transform: rotate(63deg);
+}
+
+
+/* CLOUDS */
+
+.cloud {
+  position: absolute;
+  opacity: 0.45;
+  font-size: 55px;
+}
+
+.cloud-one {
+  top: 65px;
+  left: 43%;
+}
+
+.cloud-two {
+  top: 130px;
+  right: 8%;
+}
+
+
+/* CO2 */
+
+.co2-molecule {
+  position: absolute;
+  left: 45%;
+  top: 210px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.molecule-red,
+.molecule-black,
+.oxygen-ball {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.molecule-red {
+  background: #ef4444;
+}
+
+.molecule-black {
+  background: #222;
+}
+
+.co2-molecule b {
+  margin-left: 5px;
+}
+
+
+/* OXYGEN */
+
+.oxygen-molecule {
+  position: absolute;
+  left: 58%;
+  top: 170px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  color: #7dd3fc;
+}
+
+.oxygen-ball {
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 12px rgba(56,189,248,0.8);
+}
+
+
+/* =========================================================
+   PLANT WORLD
+========================================================= */
+
+.plant-world {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+
+/* GROUND */
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px;
+}
+
+.soil-layer {
+  position: absolute;
+  inset: 60px 0 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #69452e 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      #8b5e3c 0 3px,
+      transparent 4px
+    ),
+    #3b2418;
+}
+
+.grass {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-size: 25px;
+
+  letter-spacing: 30px;
+}
+
+
+/* =========================================================
+   ROOTS
+========================================================= */
+
+.root-system {
+  position: absolute;
+
+  width: 400px;
+  height: 260px;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   STEM
+========================================================= */
+
+.plant-stem {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 180px;
+
+  width: 20px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to right,
+    #2d7a32,
+    #6fbd38,
+    #2d7a32
+  );
+
+  border-radius: 20px;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   LEAVES
+========================================================= */
+
+.leaf {
+  position: absolute;
+
+  font-size: 95px;
+
+  z-index: 11;
+
+  filter:
+    drop-shadow(
+      0 8px 15px rgba(0,0,0,0.35)
+    );
+}
+
+.leaf-left {
+  left: calc(50% - 125px);
+  bottom: 320px;
+}
+
+.leaf-right {
+  left: calc(50% + 25px);
+  bottom: 370px;
+}
+
+.top-leaf {
+  position: absolute;
+
+  left: calc(50% - 45px);
+
+  bottom: 465px;
+
+  font-size: 100px;
+
+  z-index: 11;
+}
+
+
+/* =========================================================
+   WATER PARTICLES
+========================================================= */
+
+.water-particle {
+  position: absolute;
+
+  left: calc(50% - 110px);
+
+  bottom: 90px;
+
+  font-size: 22px;
+
+  z-index: 12;
+}
+
+
+/* WATER IN STEM */
+
+.stem-water {
+  position: absolute;
+
+  left: calc(50% - 5px);
+
+  bottom: 190px;
+
+  font-size: 18px;
+
+  z-index: 15;
+}
+
+
+/* =========================================================
+   CHLOROPHYLL
+========================================================= */
+
+.chlorophyll-glow {
+  position: absolute;
+
+  left: calc(50% + 50px);
+
+  bottom: 390px;
+
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(34,197,94,0.18);
+
+  border:
+    1px solid rgba(74,222,128,0.6);
+
+  color: #86efac;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 0 30px rgba(34,197,94,0.3);
+
+  z-index: 20;
+}
+
+
+/* =========================================================
+   REACTION
+========================================================= */
+
+.reaction-center {
+  position: absolute;
+
+  left: 50%;
+
+  top: 245px;
+
+  transform: translateX(-50%);
+
+  min-width: 300px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background:
+    rgba(7,20,38,0.88);
+
+  border:
+    1px solid rgba(56,189,248,0.4);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 30;
+}
+
+.reaction-title {
+  color: #67e8f9;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.reaction-inputs {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+
+  color: white;
+
+  font-size: 18px;
+}
+
+.reaction-arrow {
+  margin: 5px;
+
+  color: #38bdf8;
+
+  font-size: 25px;
+}
+
+.glucose {
+  color: #fbbf24;
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   GROWTH
+========================================================= */
+
+.growth-label {
+  position: absolute;
+
+  right: 30px;
+
+  top: 390px;
+
+  padding: 10px 16px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(34,197,94,0.12);
+
+  color: #86efac;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  border:
+    1px solid rgba(34,197,94,0.3);
+
+  z-index: 25;
+}
+
+
+/* =========================================================
+   PROCESS BAR
+========================================================= */
+
+.photo-process {
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+
+  bottom: 80px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  z-index: 50;
+}
+
+.photo-process-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(15,23,42,0.8);
+
+  border:
+    1px solid rgba(148,163,184,0.15);
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  transition: 0.3s;
+}
+
+.photo-process-item.current {
+  color: white;
+
+  border-color: #38bdf8;
+
+  background:
+    rgba(14,116,144,0.35);
+
+  box-shadow:
+    0 0 20px rgba(56,189,248,0.2);
+}
+
+.photo-process-item.completed {
+  color: #86efac;
+
+  border-color:
+    rgba(34,197,94,0.3);
+}
+
+.process-number {
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #26354d;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FORMULA
+========================================================= */
+
+.photo-formula {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 20px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  white-space: nowrap;
+
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(2,8,23,0.85);
+
+  border:
+    1px solid rgba(148,163,184,0.15);
+
+  color: #cbd5e1;
+
+  font-family: monospace;
+
+  font-size: 13px;
+
+  z-index: 60;
+}
+
+.photo-formula strong {
+  color: #86efac;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .photo-scene {
+    min-height: 650px;
+  }
+
+  .photo-process {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .photo-formula {
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .photo-sun {
+    left: 30px;
+    transform: scale(0.75);
+  }
+
+  .leaf {
+    font-size: 70px;
+  }
+
+  .top-leaf {
+    font-size: 75px;
+  }
+
+}
