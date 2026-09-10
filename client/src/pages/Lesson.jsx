@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-
+import VoiceNarration from "../components/VoiceNarration";
 import Navbar from "../components/Navbar";
 import ExplanationPanel from "../components/ExplanationPanel";
 import AnimationControls from "../components/AnimationControls";
@@ -867,11 +867,16 @@ function Lesson() {
   /*
    * Reset step whenever the user opens another topic.
    */
-  useEffect(() => {
-    setStep(0);
-    setPlaying(true);
-  }, [topic]);
-
+ useEffect(() => {
+  setStep(0);
+  setPlaying(false);
+}, [topic]);
+useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant",
+  });
+}, [topic]);
   /*
    * Automatically move through lesson steps.
    */
@@ -886,7 +891,7 @@ function Lesson() {
 
         return current + 1;
       });
-    }, 4000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, [playing, lesson]);
@@ -981,7 +986,12 @@ function Lesson() {
               setPlaying={setPlaying}
               setStep={setStep}
             />
-
+        <VoiceNarration
+  lesson={lesson}
+  step={step}
+  playing={playing}
+  setPlaying={setPlaying}
+/>
           </div>
 
           {/* EXPLANATION */}

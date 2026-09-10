@@ -2180,3 +2180,182 @@ input {
     width: 115px !important;
   }
 }
+
+/* =========================================================
+   VOICE NARRATION
+   ========================================================= */
+
+.voice-narration {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.voice-main-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none;
+  border-radius: 11px;
+
+  padding: 11px 17px;
+
+  background: #111827;
+  color: #e5e7eb;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.voice-main-btn:hover {
+  transform: translateY(-1px);
+}
+
+.voice-main-btn.voice-active {
+  background: #2563eb;
+  color: white;
+}
+
+.voice-icon {
+  font-size: 18px;
+}
+
+.voice-replay-btn {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+
+  background: #0f172a;
+  color: white;
+
+  font-size: 21px;
+
+  cursor: pointer;
+}
+
+.voice-speaking {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-left: auto;
+
+  color: #60a5fa;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.voice-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #60a5fa;
+
+  animation: voicePulse 1s infinite;
+}
+
+@keyframes voicePulse {
+
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .voice-narration {
+    padding: 10px;
+    gap: 7px;
+  }
+
+  .voice-main-btn {
+    flex: 1;
+    min-height: 44px;
+
+    padding: 10px;
+
+    font-size: 12px;
+  }
+
+  .voice-replay-btn {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+  }
+
+  .voice-speaking {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   MOBILE LESSON ORDER
+   Visualization must appear before Quiz
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .lesson-page {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .lesson-header {
+    order: 1;
+    margin-bottom: 15px;
+  }
+
+  .lesson-layout {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lesson-quiz-section {
+    order: 3;
+    width: 100%;
+  }
+
+}
