@@ -2181,33 +2181,55 @@ input {
   }
 }
 
+
+
+
 /* =========================================================
    VOICE NARRATION
    ========================================================= */
 
 .voice-narration {
   width: 100%;
+  margin-top: 14px;
+  padding: 14px 16px;
 
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 
-  padding: 12px 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.98)
+  );
 
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  transition: all 0.25s ease;
 }
 
+
+/* =========================================================
+   MAIN VOICE BUTTON
+   ========================================================= */
+
 .voice-main-btn {
-  display: flex;
+  min-height: 44px;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 9px;
 
-  border: none;
-  border-radius: 11px;
+  padding: 10px 17px;
 
-  padding: 11px 17px;
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  border-radius: 11px;
 
   background: #111827;
   color: #e5e7eb;
@@ -2217,82 +2239,255 @@ input {
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .voice-main-btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+
+  background: #172554;
+
+  border-color: rgba(96, 165, 250, 0.55);
+
+  box-shadow:
+    0 7px 20px rgba(37, 99, 235, 0.18);
 }
+
+.voice-main-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ACTIVE / SPEAKING */
 
 .voice-main-btn.voice-active {
-  background: #2563eb;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  border-color: transparent;
   color: white;
+
+  box-shadow:
+    0 7px 22px rgba(37, 99, 235, 0.30);
 }
+
+.voice-main-btn.voice-active:hover {
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #6366f1
+  );
+}
+
+
+/* =========================================================
+   MICROPHONE ICON
+   ========================================================= */
 
 .voice-icon {
-  font-size: 18px;
+  width: 30px;
+  height: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(96, 165, 250, 0.10);
+
+  font-size: 17px;
+
+  transition: all 0.25s ease;
 }
 
+.voice-main-btn.voice-active .voice-icon {
+  background: rgba(255, 255, 255, 0.16);
+
+  animation: voiceIconPulse 1.5s infinite;
+}
+
+@keyframes voiceIconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   REPLAY BUTTON
+   ========================================================= */
+
 .voice-replay-btn {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 11px;
 
   background: #0f172a;
-  color: white;
+  color: #cbd5e1;
 
-  font-size: 21px;
+  font-size: 18px;
 
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
+.voice-replay-btn:hover {
+  transform: translateY(-2px);
+
+  background: #17233a;
+
+  border-color: rgba(96, 165, 250, 0.45);
+
+  color: #60a5fa;
+}
+
+.voice-replay-btn:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================================
+   SPEAKING INDICATOR
+   ========================================================= */
+
 .voice-speaking {
+  margin-left: auto;
+
   display: flex;
   align-items: center;
-  gap: 7px;
-
-  margin-left: auto;
+  gap: 8px;
 
   color: #60a5fa;
 
   font-size: 12px;
   font-weight: 700;
+
+  white-space: nowrap;
 }
+
+
+/* Animated dot */
 
 .voice-dot {
   width: 8px;
   height: 8px;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
   background: #60a5fa;
 
-  animation: voicePulse 1s infinite;
+  box-shadow:
+    0 0 0 0 rgba(96, 165, 250, 0.5);
+
+  animation: voiceDotPulse 1.3s infinite;
 }
 
-@keyframes voicePulse {
-
+@keyframes voiceDotPulse {
   0% {
     transform: scale(1);
-    opacity: 0.5;
+    box-shadow:
+      0 0 0 0 rgba(96, 165, 250, 0.5);
   }
 
   50% {
-    transform: scale(1.5);
-    opacity: 1;
+    transform: scale(1.25);
+    box-shadow:
+      0 0 0 7px rgba(96, 165, 250, 0);
   }
 
   100% {
     transform: scale(1);
-    opacity: 0.5;
+    box-shadow:
+      0 0 0 0 rgba(96, 165, 250, 0);
+  }
+}
+
+
+/* =========================================================
+   VOICE WAVE
+   ========================================================= */
+
+.voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  height: 24px;
+  margin-left: 4px;
+}
+
+.voice-wave span {
+  width: 3px;
+  height: 8px;
+
+  border-radius: 5px;
+
+  background: #60a5fa;
+
+  animation: voiceWave 1s ease-in-out infinite;
+}
+
+.voice-wave span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.voice-wave span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.voice-wave span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.voice-wave span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.voice-wave span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes voiceWave {
+  0%,
+  100% {
+    height: 7px;
+    opacity: 0.45;
   }
 
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
 }
 
 
@@ -2303,32 +2498,66 @@ input {
 @media (max-width: 600px) {
 
   .voice-narration {
+    margin-top: 10px;
     padding: 10px;
-    gap: 7px;
+
+    gap: 8px;
+
+    border-radius: 12px;
   }
 
   .voice-main-btn {
     flex: 1;
-    min-height: 44px;
 
-    padding: 10px;
+    min-height: 46px;
+
+    padding: 10px 12px;
 
     font-size: 12px;
   }
 
-  .voice-replay-btn {
-    width: 44px;
-    height: 44px;
+  .voice-icon {
+    width: 28px;
+    height: 28px;
 
-    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .voice-replay-btn {
+    width: 46px;
+    height: 46px;
   }
 
   .voice-speaking {
     display: none;
   }
 
+  .voice-wave {
+    display: none;
+  }
 }
 
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .voice-narration {
+    padding: 8px;
+  }
+
+  .voice-main-btn {
+    font-size: 11px;
+    padding: 9px;
+  }
+
+  .voice-replay-btn {
+    width: 43px;
+    height: 43px;
+  }
+}
 /* =========================================================
    MOBILE LESSON ORDER
    Visualization must appear before Quiz
